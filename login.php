@@ -2,6 +2,9 @@
 include 'php/site.config.php';
 
 criaHeader('login');
+
+$msgErro = @$_GET['erro'];
+// echo $msgErro;
 ?>
 
 <main class="flex grow1 center-center">
@@ -19,6 +22,10 @@ criaHeader('login');
             </section>
         </form>
     </section>
+<?php 
+    echo '<section>'.$msgErro.'</section>'
+?>
+
 </main>
 
 <?php

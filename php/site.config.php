@@ -54,5 +54,6 @@ function criaEquipe($nome) {
     <p>Equipe '.$nome.'</p>
     </div>';   
 }
-
+    // <a href="" class="deco-none">
+    // </a>
 ?>
