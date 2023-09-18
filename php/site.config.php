@@ -51,7 +51,7 @@ function criaFooter() {
 
 function criaEquipe($nome) {
     return '<div class="box-green flex w450 h150 mg-lr-30 font-2em center-center">
-    <p>Equipe '.$nome.'</p>
+    <p><a href="membros.php" class="black deco-none">Equipe'.$nome.'</a></p>
     </div>';   
 }
     // <a href="" class="deco-none">
