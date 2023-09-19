@@ -22,8 +22,9 @@ $msgErro = @$_GET['erro'];
             </section>
         </form>
     </section>
-<?php 
-    echo '<section>'.$msgErro.'</section>'
+
+<?php
+    echo '<section class="box-green flex font-2em w250 center-center">'.$msgErro.'</section>'
 ?>
 
 </main>

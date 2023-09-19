@@ -1,4 +1,10 @@
 <?php
+session_start();
+if($_SESSION["logado"] == 0){
+    header('location: login.php?erro=você não está logado');
+}
+
+
 include 'php/site.config.php';
 criaHeader('Equipes');
 ?>
