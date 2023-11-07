@@ -1,12 +1,15 @@
 <?php
 session_start();
+$user = "";
 if($_SESSION["logado"] == 0){
     header('location: login.php?erro=você não está logado');
+} else {
+    $user = $_SESSION["email"];
 }
 
 include 'php/site.config.php';
 
-criaHeader('home');
+criaHeader('home',$user);
 ?>
 
 <main class="flex grow1">

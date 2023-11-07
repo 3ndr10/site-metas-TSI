@@ -1,6 +1,52 @@
 <?php
 
-function criaHeader($titulo) {
+function getUsuario($login, $senha_md5) {
+
+    include './site.conexao.php';
+    
+    $sql = "SELECT * FROM `usuarios` WHERE (`login` LIKE '$login' OR `email` LIKE '$login') AND `senha` LIKE '$senha_md5';";
+    
+
+    $result = mysqli_query($conn, $sql);    
+    if (mysqli_num_rows($result) > 0) {
+    
+        $row = mysqli_fetch_assoc($result);
+
+        return $row;
+       
+    } else {
+       return null;
+    }
+    
+    mysqli_close($conn);
+
+}
+
+function criarMenu($usuario) {
+    $menu = "";
+    if($usuario != "")
+    {
+        $menu = ' <div class="right">
+        <a class="green-h deco-none" href="index.php">Home</a>
+        <a class="green-h deco-none" href="equipes.php">Equipes</a>
+        <a class="deco-none" href="sair.php">
+        '.$usuario.'
+        <iconify-icon icon="ph:user-light"></iconify-icon>
+        </a>
+        <a class="green-h deco-none href="sair.php">Sair</a>
+        </div>';
+    } else {
+        $menu = ' <div class="right">
+        <a class="green-h deco-none" href="index.php">Home</a>
+        <a class="green-h deco-none" href="equipes.php">Equipes</a>
+        <a class="green-h deco-none" href="login.php">Logar</a>
+        </div>';
+    }
+
+    return $menu;
+}
+
+function criaHeader($titulo, $usuario) {
     echo '<!DOCTYPE html>
     <html lang="pt-br">
     
@@ -12,6 +58,8 @@ function criaHeader($titulo) {
     
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
+
+        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     </head>
     
     <body>
@@ -22,11 +70,7 @@ function criaHeader($titulo) {
                         <h1 class="green-t">Metas - TSI<img src="img/logo.png" alt="logotipo" class="logo"></h1>
                     </a>
                 </div>
-                <div class="right">
-                    <a class="green-h deco-none" href="index.php">Home</a>
-                    <a class="green-h deco-none" href="equipes.php">Equipes</a>
-                    <a class="green-h deco-none" href="login.php">Login</a>
-                </div>
+                '.criarMenu($usuario).'
             </nav>
         </header>';
 }

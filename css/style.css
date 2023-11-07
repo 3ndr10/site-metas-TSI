@@ -62,6 +62,10 @@ body {
     width: 250px;
 }
 
+.w100vw{
+    width: 100vw;
+}
+
 .w200{
     width: 200px;
 }
@@ -130,6 +134,10 @@ body {
     margin-bottom: 10px;
 }
 
+.pd-20{
+    padding: 20px;
+}
+
 .box-green {
     border: 2px solid #2da63f;
     border-radius: 5px;
@@ -190,6 +198,14 @@ body {
 
 .bkg-gr{
     background-color: rgb(199, 194, 194);
+}
+
+.red{
+    color: red;
+}
+
+.green{
+    color: #2da63f;
 }
 
 /* header-principal */
